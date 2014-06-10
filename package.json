@@ -1,6 +1,6 @@
 {
   "name": "gypls",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Recursively list all native modules",
   "main": "index.js",
   "dependencies": {
