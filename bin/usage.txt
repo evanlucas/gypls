@@ -1,0 +1,9 @@
+gypls - list all dependencies with a gypfile
+
+  usage: gypls [options]
+
+  options:
+    -h, --help                show help and usage
+    -l, --loglevel <level>    set the loglevel
+    -v, --version             show version
+    -j, --json                output results in json

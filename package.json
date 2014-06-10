@@ -1,0 +1,50 @@
+{
+  "name": "gypls",
+  "version": "0.0.0",
+  "description": "Recursively list all native modules",
+  "main": "index.js",
+  "dependencies": {
+    "archy": "0.0.2",
+    "chalk": "~0.4.0",
+    "nopt": "~3.0.0",
+    "npmlog": "0.0.6",
+    "readdirp": "~1.0.1"
+  },
+  "devDependencies": {
+    "blanket": "~1.1.6",
+    "jostle": "~0.1.1",
+    "mocha": "~1.18.2",
+    "should": "~4.0.4"
+  },
+  "scripts": {
+    "test": "mocha -R spec",
+    "cover": "mocha -r blanket -R json-cov | jostle",
+    "cover-html": "mocha -r blanket -R html-cov > coverage.html",
+    "circle": "mkdir -p $CIRCLE_ARTIFACTS && mocha -r blanket -R html-cov > $CIRCLE_ARTIFACTS/coverage.html"
+  },
+  "bin": {
+    "gypls": "./bin/cmd.js"
+  },
+  "license": "MIT",
+  "keywords": [
+    "gyp",
+    "ls",
+    "native",
+    "binary"
+  ],
+  "author": "Evan Lucas <evanlucas@me.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanlucas/gypls"
+  },
+  "homepage": "https://github.com/evanlucas/gypls",
+  "bugs": {
+    "url": "https://github.com/evanlucas/gypls/issues"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "/lib/",
+      "data-cover-never": "node_modules"
+    }
+  }
+}
