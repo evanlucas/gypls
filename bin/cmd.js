@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var fs = require('fs')
-  , log = require('npmlog')
+var log = require('npmlog')
   , archy = require('archy')
   , nopt = require('nopt')
+  , usage = require('help')()
   , knownOpts = { loglevel: ['verbose', 'info', 'error', 'silent']
                 , help: Boolean
                 , version: Boolean
@@ -25,8 +25,7 @@ log.heading = 'gypls'
 if (parsed.loglevel) gypls.log.level = parsed.loglevel
 
 if (parsed.help) {
-  usage(0)
-  return
+  return usage(0)
 }
 
 if (parsed.version) {
@@ -52,11 +51,3 @@ gypls.read(dir, parsed.json, function(err, results) {
     }
   }
 })
-
-function usage(code) {
-  var rs = fs.createReadStream(__dirname + '/usage.txt')
-  rs.pipe(process.stdout)
-  rs.on('close', function() {
-    if (code) process.exit(code)
-  })
-}
